@@ -13,10 +13,11 @@ export default function Home() {
       </header>
       <main>
         <div>
-          <form className="p-4 mx-20 my-5 bg-green-500 rounded-md space-x-10 space-y-10">
+          <form className="p-4 w-3/4 mx-auto my-5 bg-green-500 rounded-md space-x-10 space-y-10">
             <h1 className="flex justify-center text-2xl font-extrabold">Create Cookie Stand</h1>
-            <div>
-              <label>Location: <input className="col-span-2... "type="text" name="location" ></input></label>            
+            <div className="flex">
+              <label className="mr-4">Location:</label>   
+              <input className="flex-grow "type="text" name="location" />
             </div>
             <div className="flex justify-between -mx-3 mb-2">
               <div >
