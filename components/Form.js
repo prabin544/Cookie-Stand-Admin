@@ -1,8 +1,7 @@
 import { useState } from "react";
 
-function Form() {
+function Form(props) {
   const [formItems, setformItems] = useState({});
-  console.log("form Items: ", formItems);
   const handleChange = (e) => {
     const newFormItems = {
       ...formItems,
@@ -10,8 +9,17 @@ function Form() {
     };
     setformItems(newFormItems);
   };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // console.log("click", formItems);
+    props.updateReport(formItems);
+  };
   return (
-    <form className="p-4 w-3/4 mx-auto my-5 bg-green-500 rounded-md space-x-10 space-y-10">
+    <form
+      onSubmit={handleSubmit}
+      className="p-4 w-3/4 mx-auto my-5 bg-green-500 rounded-md space-x-10 space-y-10"
+    >
       <h1 className="flex justify-center text-2xl font-extrabold">
         Create Cookie Stand
       </h1>
@@ -59,10 +67,7 @@ function Form() {
           />
         </div>
         <div>
-          <button
-            class="text-teal-500 bg-transparent border border-solid border-teal-500 hover:bg-teal-500 hover:text-white active:bg-teal-600 font-bold uppercase px-8 py-3 rounded-full outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-            type="button"
-          >
+          <button class="text-teal-500 bg-transparent border border-solid border-teal-500 hover:bg-teal-500 hover:text-white active:bg-teal-600 font-bold uppercase px-8 py-3 rounded-full outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150">
             Create
           </button>
         </div>

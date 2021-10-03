@@ -12,7 +12,19 @@ function Reporttable(props) {
           <th>Total</th>
         </tr>
       </thead>
-      <tbody></tbody>
+      <tbody>
+        {props.reports.map((store) => {
+          return (
+            <tr className="odd:bg-gray-500" key={Math.random()}>
+              <td>{store.location}</td>
+              {store.hourly_sale.map((sale) => {
+                return <td>{sale}</td>;
+              })}
+              <td>100</td>
+            </tr>
+          );
+        })}
+      </tbody>
     </table>
   );
 }
