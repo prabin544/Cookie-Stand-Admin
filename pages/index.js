@@ -4,14 +4,19 @@ import Layout from "../components/Layout";
 import Form from "../components/form";
 import Reporttable from "../components/Reporttable";
 import { hours } from "../data";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { changeCount } from "../reduxStore/countSlice";
 
 export default function Home() {
   const [reports, setReports] = useState([]);
+  const dispatch = useDispatch();
 
   const updateReport = (formObj) => {
     let result = calculate(formObj);
     let newReports = [...reports, result];
+    console.log("Length: ", newReports.length);
+    dispatch(changeCount(newReports.length));
     setReports(newReports);
   };
 
