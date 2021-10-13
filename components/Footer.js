@@ -1,19 +1,17 @@
-import React from "react";
-import Link from "next/link";
-import { useSelector } from "react-redux";
+import useResource from "../hooks/useResource";
 
 function Footer() {
-  const count = useSelector((state) => state.countSlice.value);
+  // const { resources } = useResource();
   return (
-    <footer className="p-4 bg-green-500 mt-10">
-      <nav className="flex items-center justify-left space-x-10">
-        <Link href="/careers">
-          <a className="text-xl" href="careers" className="font-bold">
-            {count} Locations World Wide
-          </a>
-        </Link>
-      </nav>
-    </footer>
+    <></>
+    // <nav className="w-full h-25 px-8 bg-green-500 sm:px-0 pin-b">
+    //   <div className="container flex justify-between py-5 mx-auto">
+    //     <label className="text-2xl font-bold text-green-800">
+    //       {resources ? resources.length : 0}
+    //       <span className="font-light"> Locations World Wide</span>
+    //     </label>
+    //   </div>
+    // </nav>
   );
 }
 

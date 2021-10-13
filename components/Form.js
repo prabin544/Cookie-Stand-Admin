@@ -1,7 +1,10 @@
 import { useState } from "react";
+import useResource from "../hooks/useResource";
 
 function Form(props) {
   const [formItems, setformItems] = useState({});
+  const { createResource } = useResource();
+
   const handleChange = (e) => {
     const newFormItems = {
       ...formItems,
@@ -13,7 +16,7 @@ function Form(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
     // console.log("click", formItems);
-    props.updateReport(formItems);
+    createResource(formItems);
   };
   return (
     <form
@@ -39,7 +42,7 @@ function Form(props) {
           </label>
           <input
             onChange={handleChange}
-            name="minCustomers"
+            name="minimum_customers_per_hour"
             className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
             type="number"
           />
@@ -50,7 +53,7 @@ function Form(props) {
           </label>
           <input
             onChange={handleChange}
-            name="maxCustomers"
+            name="maximum_customers_per_hour"
             className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
             type="number"
           />
@@ -61,7 +64,7 @@ function Form(props) {
           </label>
           <input
             onChange={handleChange}
-            name="avgCookies"
+            name="average_cookies_per_sale"
             className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
             type="number"
           />
