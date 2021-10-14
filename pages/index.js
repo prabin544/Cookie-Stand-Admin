@@ -15,7 +15,7 @@ export default function Home() {
   const { user, login, logOut } = useAuth();
   console.log("USER", user);
   const { resources } = useResource();
-  console.log(resources);
+  console.log("resources", resources);
 
   return (
     <Layout>
