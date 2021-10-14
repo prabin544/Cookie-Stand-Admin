@@ -4,6 +4,7 @@ function Reporttable(props) {
   if (props.reports && props.reports.length === 0) {
     return <h2 className="text-center">No Cookie Stand Available</h2>;
   }
+  console.log("reports", props.reports);
   return (
     <table className="mx-auto w-3/4 bg-gray-200 ">
       <thead>
